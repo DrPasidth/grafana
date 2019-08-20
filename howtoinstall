@@ -104,3 +104,16 @@ Final test
 
 http://your ip address:3000/
 3000 is the default http port that Grafana listens to if you haven’t configured a different port. Then follow the instructions here.
+
+in case you forget password:
+How to reset user name and password back to admin/admin
+
+key command below
+$ sudo sqlite3 /var/lib/grafana/grafana.db
+
+sqlite> update user set password = '59acf18b94d7eb0694c61e60ce44c110c7a683ac6a8f09580d626f90f4a242000746579358d77dd9e570e83fa24faa88a8a6', salt = 'F3FAxVm33R' where login = 'admin';
+sqlite> .exit
+
+You will get user:admin
+password: admin
+
